@@ -68,6 +68,12 @@ test('admin should be in usernames', () => {
 // Async Await
 test('User name fetched should be Leanne Graham', async () => {
     expect.assertions(1)    // expect to have 1 assertion in this test
-    const data = await functions.fetchUser()
+    const data = await functions.fetchUser(1)
     expect(data.name).toEqual('Leanne Graham')    
+})
+
+test('Handle exceptions for fetchUser', async () => {
+    expect.assertions(1)    // expect to have 1 assertion in this test
+    const err = await functions.fetchUser(0)
+    expect(err).toBe('error')    
 })

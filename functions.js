@@ -12,7 +12,7 @@ const functions = {
 
         return user
     },
-    fetchUser: () => axios.get('https://jsonplaceholder.typicode.com/users/1')
+    fetchUser: (id) => axios.get('https://jsonplaceholder.typicode.com/users/' + id)
         .then(res => res.data)
         .catch(err => 'error')
 }
